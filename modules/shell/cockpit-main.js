@@ -145,8 +145,10 @@ function set_watched_client(client) {
     }
 
     watched_client = client;
-    $(watched_client).on('state-change.client-watcher', update);
-    update ();
+    if(watched_client) {
+        $(watched_client).on('state-change.client-watcher', update);
+        update ();
+    }
 }
 
 PageDisconnected.prototype = {
