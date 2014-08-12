@@ -453,8 +453,11 @@ PageContainers.prototype = {
         $(this.client).on('failure.containers', function(event, ex) {
             /* This error is handled via cockpit.set_watched_client
              * and we don't need to show it here. */
-            if (ex.problem != "disconnected")
+            if (ex.problem != "disconnected") {
                 show_failure(ex);
+                $('#containers').hide();
+                $('#containers-docker-error').show();
+            }
         });
 
         var id;
@@ -482,6 +485,7 @@ PageContainers.prototype = {
         $(this.client).off('.containers');
         this.client.release();
         this.client = null;
+        $('#containers-docker-error').hide();
     },
 
     render_container: function(id, container) {

@@ -813,6 +813,16 @@ a {
     float: left;
 }
 
+#containers-docker-error {
+    margin-top: 100px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#containers-docker-start-button {
+    margin-top: 15px;
+}
+
 /* Patternfly doesn't have modal-sm
 */
 
